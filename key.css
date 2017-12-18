@@ -1,0 +1,62 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	outline:none;
+}
+body{
+	background: #cccccc;
+}
+.into{
+	width: 600px;
+	height: auto;
+	padding: 10px 20px;
+	margin: 10px auto;
+	border: 1px solid #000;
+	border-radius: 5px;
+}
+.box{
+	width: 90%;
+	height:auto;
+	margin:10px auto;
+}
+.box > input{
+	width:100%;
+	padding:6px 12px;
+	border: none;
+	border-radius: 6px;
+	font-size: 14px;
+	box-shadow: 0 0 5px rgba(0 0 0 0.3) inser;
+	box-sizing: border-box;
+
+}
+.box > textarea{
+	width:100%;
+	height:200px;
+	padding:6px 12px;
+	border:none;
+	border-radius: 6px;
+	font-size: 14px;
+	resize:none;
+	box-shadow: 0 0 5px rgba(0 0 0 0.3) inser;
+	box-sizing: border-box;
+}
+.box > button{
+	width: 100%;
+	padding:6px 0;
+	background: #000;
+	color:#fff;
+	font-size:14px;
+	border-radius: 3px;
+	border:none;
+}
+.tips{
+	width:90%;
+	margin:10px auto;
+	font-size:14px;
+
+}
+.tips > span{
+	color:#000;
+	font-size:14px;
+}

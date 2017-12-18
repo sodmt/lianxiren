@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>放大镜</title>
+</head>
+<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	.sImg , .bImg{
+		width: 300px;
+		height: 300px;
+		margin-top: 20px;
+		margin-left: 50px;
+		border: 1px solid #000;
+		float: left;
+		position: relative;
+	}
+	.sImg img{
+		width: 100%;
+		height: 100%;
+	}
+	.bImg {
+		overflow: hidden;
+	}
+	.bImg img{
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	.sImg .mask{
+		width: 75px;
+		height: 75px;
+		background-color: rgba(0, 0,0,.5);
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+	.sImg .zhao{
+		width: 300px;
+		height: 300px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 999;
+	}
+	
+</style>
+<body>
+	<div class="sImg">
+		<img src="img/1.jpg" alt="" class="t1">
+		<div class="mask"></div>
+		<div class="zhao"></div>
+	</div>
+	<div class="bImg">
+		<img src="img/2.jpg" alt="" class="t2">
+	</div>
+</body>
+</html>
+<script src="fdj.js"></script>
+<script>
+
+</script>

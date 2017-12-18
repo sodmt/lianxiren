@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>个人信息</title>
+</head>
+<style>
+	*{
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	.box{
+		width: 600px;
+		height: auto;
+		background: pink;
+		margin: 30px auto;
+		overflow: hidden;
+		padding: 10px;
+	}
+	.concent{
+		width: 600px;
+		height: auto;
+		border: 1px solid #000;
+		border-radius: 5px;
+	}
+	.concent th{
+		width: 10%;
+		height: auto;	
+	}
+	.concent td{
+		width: 10%;
+		height: auto;
+		text-align: center;
+		padding: 5px;
+	}
+	tr:nth-child(2n){
+		background: #ccc;
+	}
+	tr:nth-child(2n+1){
+		background: #fff;
+	}
+	button{
+		padding: 5px 10px;
+		/*border: none;*/
+		float: right;
+		margin: 20px;
+		outline: none;
+	}
+</style>
+<body>
+	<div class="box">
+		<table class="concent">
+			<tr>
+				<th>姓名</th>
+				<th>性别</th>
+				<th>年龄</th>
+				<th>籍贯</th>
+				<th>电话</th>
+				<th>操作</th>
+			</tr>
+			<tr>
+				<td>张三</td>
+				<td>男</td>
+				<td>20</td>
+				<td>山西</td>
+				<td>12345678</td>
+				<td class="del"><button>删除</button></td>
+			</tr>
+		</table>
+		<button>添加</button>
+	</div>
+</body>
+</html>
+<script src="function.js"></script>
+<script>
+/*
+1、获取表格
+2、获取原属性值
+3、请空属性值
+4、添加input
+5、input内容 = 原属性值
+6、失去焦点时onblur将值放回td ，移除表单，保存表单。
+ */
+	window.onload = function(){
+		let con = $('tbody')[0];
+		let but = $('button')[1];
+		let del = $('del')[0];
+		con.ondblclick = function(e){
+			let ele = e.target;
+			if(ele.nodeName == 'TD' && ele.className != 'del'){
+				let input = document.createElement('input');
+				let old = ele.innerText;
+				ele.innerText = '';
+				ele.appendChild(input);
+				input.value = old;
+				input.onblur = function(){
+					let news = input.value;
+					ele.innerText = news;
+				}
+			}else if(ele.nodeName == 'BUTTON'){
+				let shan = ele.parentNode.parentNode;
+					con.removeChild(shan);
+					console.log(shan);	
+			}
+		}
+		but.onclick = function(){
+			con.innerHTML = con.innerHTML+`
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="del"><button>删除</button></td>
+				</tr>
+			`
+		}
+
+	}
+
+</script>

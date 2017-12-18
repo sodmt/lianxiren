@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>通讯录</title>
+	<link rel="stylesheet" href="phone.css">
+	<script src="rem.js"></script>
+</head>
+<body>
+	<header>
+		<input type="text" placeholder="搜索">
+	</header>
+	<dl>
+		<dt>A</dt>
+		<dd>
+			<a href="tel:110">张三</a>
+		</dd>
+		<dd>
+			<a href="tel:110">张三</a>
+		</dd>
+		<dd>
+			<a href="tel:110">张三</a>
+		</dd>
+		<dd>
+			<a href="tel:110">张三</a>
+		</dd>
+		<dd>
+			<a href="tel:110">张三</a>
+		</dd>
+		<dt>A</dt>
+		<dd>
+			<a href="tel:110">张三</a>
+		</dd>
+		<dd>
+			<a href="tel:110">张三</a>
+		</dd>
+		<dd>
+			<a href="tel:110">张三</a>
+		</dd>
+		<dd>
+			<a href="tel:110">张三</a>
+		</dd>
+		<dd>
+			<a href="tel:110">张三</a>
+		</dd>
+		<dt>A</dt>
+		<dd>
+			<a href="tel:110">张三</a>
+		</dd>
+		<dd>
+			<a href="tel:110">张三</a>
+		</dd>
+		<dd>
+			<a href="tel:110">张三</a>
+		</dd>
+		<dd>
+			<a href="tel:110">张三</a>
+		</dd>
+		<dd>
+			<a href="tel:110">张三</a>
+		</dd>
+		<dt>A</dt>
+		<dd>
+			<a href="tel:110">张三</a>
+		</dd>
+		<dd>
+			<a href="tel:110">张三</a>
+		</dd>
+		<dd>
+			<a href="tel:110">张三</a>
+		</dd>
+		<dd>
+			<a href="tel:110">张三</a>
+		</dd>
+		<dd>
+			<a href="tel:110">张三</a>
+		</dd>
+		<dt>A</dt>
+		<dd>
+			<a href="tel:110">张三</a>
+		</dd>
+		<dd>
+			<a href="tel:110">张三</a>
+		</dd>
+		<dd>
+			<a href="tel:110">张三</a>
+		</dd>
+		<dd>
+			<a href="tel:110">张三</a>
+		</dd>
+		<dd>
+			<a href="tel:110">张三</a>
+		</dd>
+	</dl>
+	<ul class="solide">
+		<li>A</li>
+		<li>B</li>
+		<li>C</li>
+	</ul>
+</body>
+</html>
+<script src="function.js"></script>
+<script>
+	$(function(){
+		/*let arr = [
+			{id:1,name:"马婷",tell:15196788661,pinyin:"mating"},
+			{id:2,name:"马倩倩",tell:15296788662,pinyin:"maqianqian"},
+			{id:3,name:"丁杰",tell:15396788663,pinyin:"dingjie"},
+			{id:4,name:"丁鹏",tell:15496788664,pinyin:"dingpeng"},
+			{id:5,name:"天天",tell:15596788665,pinyin:"tiantian"},
+			{id:6,name:"李小妍",tell:15696788666,pinyin:"lixiaoyan"},
+			{id:7,name:"武子厚",tell:15796788667,pinyin:"wuzihou"},
+		];
+		localStorage.setItem('contact',JSON.stringify(arr));
+		localStorage.contact = JSON.stringify(arr);*/
+		let data = JSON.parse(localStorage.getItem('contact'));
+		let dl = $('dl')[0];
+		let ul = $('ul')[0];
+		console.log(dl);
+		//M:[{},{},{}]
+		render(data);
+		//首字符进行遍历
+		function render(data){
+			dl.innerHTML="";
+			ul.innerHTML = "";
+			let obj = {};
+			data.forEach(element=>{
+				let firstChar = element.pinyin.trim().charAt().toUpperCase();
+				//判断有没有这个属性，如果没有初始化一个，有的话直接放进去
+				if(!obj[firstChar]){
+					obj[firstChar] = [];
+				}
+				obj[firstChar].push(element);
+			})
+			let keys = Object.keys(obj).sort();
+			keys.forEach(element=>{
+				dl.innerHTML += `<dt>${element}</dt>`
+				ul.innerHTML += `<li>${element}</li>`
+
+			obj[element].forEach(v =>{
+					dl.innerHTML += `
+						<dd>
+							<a href="tel:${v.tell}">${v.name}</a>
+						</dd>
+					`
+				})
+			})
+		}
+	})
+
+</script>

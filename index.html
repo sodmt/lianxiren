@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="function.js"></script>
+<style>
+    .circle {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: #cccccc;
+        /*position: absolute;
+        left:0;
+        top:0;
+        transition: all ease .5s;*/
+    }
+
+    .box {
+        width: 300px;
+        height: 300px;
+        background: pink;
+        /*border-radius: 5px;*/
+    }
+</style>
+<body>
+    <div class="box" >
+        <div id="app">3333</div>
+        
+    </div>
+    
+    <span>11111</span>
+</body>
+</html>
+<script src="function.js"></script>
+<script>
+    $(function(){
+        let box = $('.box');
+        let divs = $('<div>');
+
+        let app = $('#app');
+        let html = $('HTML');
+        let body = $('BODY');
+
+        divs.innerText = 'hello';
+        // box[0].appendChild(divs);
+        // prepend(box[0],divs);
+        // append(box[0],);
+        // box[0].append();
+        // box[0].prepend();
+        // box[0].prepend(divs);
+    
+         // box[0].insert(divs);
+         // console.log(divs);
+         // divs.insertTo(box);
+         // box[0].after(divs);
+
+         // console.log(app.parent());
+         // console.log(app.parents());
+        let offset =  app.offsetParents();//寻找定位属性的父元素
+        // console.log(offset);//寻找定位属性的输出
+        box.addEventListener('click',function(){
+            this.style.background = '#ccc';
+        });
+
+
+
+    })
+
+</script>

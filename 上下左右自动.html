@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自动</title>
+</head>
+<style>
+	.box{
+		width: 200px;
+		height: 200px;
+		background: yellow;
+		border-radius: 50%;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+</style>
+<body>
+	<div class="box">
+		
+	</div>
+</body>
+</html>
+<script>
+/*
+1、获取元素
+2、开启时间函数
+3、获取元素的移动时间
+4、添加判断条件(让元素在window窗口内移动)
+5、给它设置行内样式，距离top，left的值。
+*/
+	window.onload = function(){
+		let box = document.getElementsByClassName('box')[0];
+		let yd = 1;    //浮动的速度
+		let xd = 1;
+		let maxh = window.innerHeight - box.offsetHeight;
+		let maxw = window.innerWidth - box.offsetWidth;
+		setInterval(move,1);
+		function move(){
+			let tops = box.offsetTop + yd;
+			let lefts = box.offsetLeft + xd;
+			if(tops > maxh){
+				tops = maxh;
+				yd *= -1;
+			}
+			if(tops <= 0){
+				tops = 0;
+				yd *= -1;
+			}
+			if(lefts > maxw){
+				lefts = maxw;
+				xd *= -1;
+			}
+			if(lefts <= 0){
+				lefts = 0;
+				xd *= -1;
+			}
+			box.style.top = tops + 'px';
+			box.style.left = lefts + 'px';
+		}
+	}
+
+</script>

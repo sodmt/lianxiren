@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>float(es6)</title>
+</head>
+<style>
+	.box{
+		width: 200px;
+		height: 200px;
+		background: darkorange;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+</style>
+<body>
+	<div class="box"></div>
+</body>
+</html>
+<script src="Float.js"></script>
+<script>
+
+	let box = document.querySelector('.box');
+	let boxF = new Float(box);
+	boxF.start();
+	document.onclick = function(){
+		boxF.stop();
+	}
+	window.onresize = function(){
+		boxF.resize(box);
+	}
+	
+</script>
